@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://evolus.vn/Namespaces/WebUI/1.0">
+
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet" />
+    <link rel="stylesheet/less" type="text/css" href="../webui/framework/style/layout.less" />
+    <link rel="stylesheet/less" type="text/css" href="../webui/framework/style/theme-default.less?" />
+    <link rel="stylesheet/less" type="text/css" href="../webui/framework/style/icon-materialicons.less" />
+    <link rel="stylesheet/less" type="text/css" href="../webui/framework/style/icon-fontawesome.less" />
+
+
+    <!--  FRAMEWORK SCRIPTS -->
+    <script type="text/javascript" src="../webui/framework/js/less-2.7.1.min.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/common-dom.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/common-net.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/stacktrace.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/widget/Common.js"></script>
+
+    <script type="text/javascript" src="../webui/framework/js/widget/SplitView.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/widget/Dialog.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/widget/ActionBar.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/widget/DataTable.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/widget/Paginator.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/widget/TabPane.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/widget/Popup.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/widget/Menu.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/widget/ComboManager.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/widget/Tree.js"></script>
+    <script type="text/javascript" src="../webui/framework/js/widget/RepeaterView.js"></script>
+
+    <!-- APPLICATION SPECIFIC WIDGETS -->
+    <script src="./js/static/Material.js"></script>
+    <script src="./js/model/shape/Shape.js"></script>
+    <script src="./js/model/shape/Cone.js"></script>
+    <script src="./js/model/shape/Cube.js"></script>
+    <script src="./js/model/shape/Cylinder.js"></script>
+    <script src="./js/model/shape/Sphere.js"></script>
+    <script src="./js/model/order/Order.js"></script>
+    <script src="./serviceFactory/ServiceFactory.js"></script>
+    <script src="./widgets/OrderListManagement.js"></script>
+    <script src="./widgets/OrderDetailViewDialog.js"></script>
+    <script src="./widgets/ShapeDetailViewDialog.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+    }
+
+    body {
+        --inputWidth: 10em;
+        --marginTop: 2.5em;
+        --itemWidth: 10em;
+        --paddingHorizontal: 1.06666667em;
+        --mainWidth: 640px;
+        --bodyBackground: #c0c0c0;
+        --bodyBackground2: #f5f5f5;
+        --warningColor: #fb9600;
+        --pagingColor: #00bcd4;
+        --safeColor: #84c55f;
+        --errorColor: #f95853;
+        --borderColor: #d0d0d0;
+    }
+
+    table {
+        max-width: var(--mainWidth);
+    }
+
+    .ComboManagerPopup {
+        width: var(--inputWidth);
+    }
+</style>
+
+<body style="background-color: #c0c0c0;">
+    <vbox>
+        <hbox flex="1">
+            <ui:OrderListManagement flex="1" />
+        </hbox>
+    </vbox>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<vbox xmlns:ui="http://evolus.vn/Namespaces/WebUI/1.0">
+    <style>
+        .Text {
+            font-weight: bold;
+        }
+
+        .OrderDetail {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .OrderInput {
+            margin-right: 1.2em;
+        }
+
+        .Input {
+            outline: none;
+            height: 2.5em;
+            border-radius: unset;
+            border: 1px solid #949494;
+        }
+
+        .Description {
+            margin-right: unset;
+        }
+
+        .Description .Input {
+            width: 100%;
+        }
+
+        .Shape .Total {
+            display: flex;
+        }
+
+        .Shape .TotalTitle {
+            font-weight: bold;
+        }
+
+        .NewOrderButton {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: var(--marginTop);
+        }
+
+        .TotalBar {
+            display: flex;
+            align-items: center;
+            margin-top: var(--marginTop);
+        }
+
+        .Total {
+            width: var(--itemWidth);
+        }
+
+        .Total.Price {
+            width: unset;
+        }
+
+        .TotalButton {
+            display: flex;
+            justify-content: flex-end;
+            cursor: pointer;
+        }
+
+        .FlexGrow {
+            flex-grow: 1;
+        }
+
+        .TotalButton .Button {
+            padding: 0.4em;
+            width: unset;
+            height: unset;
+            background-color: var(--warningColor);
+            color: white;
+            border-radius: 0.1em;
+        }
+
+        .WrapDataTable {
+            flex-grow: 1;
+            margin-top: 1em;
+        }
+
+        @dataTableContainer, @dataTable { 
+            flex-grow: 1;
+        }
+
+        @dataTable td i {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        @dataTable td .Actionedit {
+            margin-right: 10px;
+        }
+
+        @dataTable td .Actiondelete {
+            color: var(--errorColor);
+        }
+
+        @contentFooter {
+            margin-top: 1em;
+        }
+
+        @contentDescription {
+            color: rgba(0,0,0,0.54);
+        }
+    </style>
+    <vbox>
+        <div class="PopupContent">
+            <div class="Text">Order Details</div>
+            <div class="OrderDetail">
+                <div class="OrderInput">
+                    <div class="Text">Order Number:</div>
+                    <input class="Input" anon-id="orderNumber" type="number" min="0" />
+                </div>
+                <div class="OrderInput">
+                    <div class="Text">Order Date:</div>
+                    <input class="Input" anon-id="orderDate" type="date" />
+                </div>
+                <div class="OrderInput Description FlexGrow">
+                    <div class="Text">Description:</div>
+                    <input class="Input" anon-id="orderDescription" type="text" />
+                </div>
+            </div>
+            <div class="TotalBar Shape">
+                <div class="Total">
+                    <div class="TotalTitle Text">Item Total:</div>
+                    <div class="Text" anon-id="shapeTotalItem"></div>
+                </div>
+                <div class="Total Price">
+                    <div class="TotalTitle Text">Total Price:</div>
+                    <div class="Text" anon-id="shapeTotalPrice"></div>
+                </div>
+                <div class="TotalButton FlexGrow">
+                    <div class="Button Total" anon-id="newShapeButton">New Item...</div>
+                </div>
+            </div>
+        </div>
+        <div class="WrapDataTable">
+            <vbox anon-id="dataTableContainer">
+                <ui:DataTable anon-id="dataTable"/>
+            </vbox>
+            <hbox anon-id="contentFooter">
+                <div anon-id="contentDescription" flex="1"></div>
+                <ui:Paginator anon-id="paginator" />
+            </hbox>
+        </div>
+    </vbox>
+</vbox>

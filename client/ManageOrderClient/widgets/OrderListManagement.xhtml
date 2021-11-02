@@ -1,0 +1,201 @@
+<vbox xmlns:ui="http://evolus.vn/Namespaces/WebUI/1.0">
+    <style>
+        header {
+            height: 5rem;
+            background-color: #fb9600;
+            padding: 0 1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .HeaderTittle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .HeaderTittle .MainName {
+            font-weight: bold;
+        }
+
+        .HeaderTittle .SubName {
+            font-size: 0.9em;
+        }
+
+        .HeaderTittle .Logo {
+            color: #0290a2;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        footer {
+            height: 2.6rem;
+            padding: 0.9em var(--paddingHorizontal) 0;
+            background-color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .FooterWrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+        }
+
+        a {
+            text-decoration: none;
+            color: gray;
+            font-size: 2em;
+        }
+
+        .Reference {
+            flex-grow: 1;
+            font-size: 0.8em;
+        }
+
+        .Reference a {
+            font-size: 0.8em;
+            color: #00bcd4;
+        }
+
+        .Content {
+            width: var(--mainWidth);
+            height: 100vh;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .Main {
+            padding: 10px var(--paddingHorizontal);
+            background-color: white;
+            transition: opacity 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .Tittle {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .TotalBar {
+            display: flex;
+            align-items: center;
+            margin-top: var(--marginTop);
+        }
+
+        .Total {
+            width: var(--itemWidth);
+        }
+
+        .Total.Price {
+            width: unset;
+        }
+
+        .TotalButton {
+            display: flex;
+            justify-content: flex-end;
+            cursor: pointer;
+        }
+
+        .FlexGrow {
+            flex-grow: 1;
+        }
+
+        .TotalButton .Button {
+            padding: 0.4em;
+            width: unset;
+            height: unset;
+            background-color: var(--warningColor);
+            color: white;
+            border-radius: 0.1em;
+        }
+
+        .Text {
+            font-weight: bold;
+        }
+
+        @contentFooter {
+            align-items: center;
+            background-color: white;
+            padding: 0 var(--paddingHorizontal);
+        }
+
+        @contentDescription { 
+            color: rgba(0,0,0,0.54);
+        }
+        
+        @dataTable td i {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        @dataTable td .Actionedit {
+            margin-right: 10px;
+        }
+
+        @dataTable td .Actiondelete {
+            color: var(--errorColor);
+        }
+    </style>
+    <div class="Content" id="content">
+        <header>
+            <div class="HeaderTittle">
+                <div class="Name">
+                    <p class="MainName">Order Management</p>
+                    <p class="SubName">View your order and manage them</p>
+                </div>
+                <div class="Logo">
+                    <p>ABC Toy Store</p>
+                </div>
+            </div>
+        </header>
+        <div class="Main" anon-id="main">
+            <div class="Tittle">Order List</div>
+            <div class="TotalBar">
+                <div class="Total">
+                    <div class="TotalTitle Text">Total Order</div>
+                    <div class="Text" anon-id="totalOrder"></div>
+                </div>
+                <div class="Total">
+                    <div class="TotalTitle Text">Total Amount</div>
+                    <div class="TotalNumber Text" anon-id="totalAmount"></div>
+                </div>
+                <div class="TotalButton FlexGrow">
+                    <div class="Button Total" anon-id="createNewOrder">Create New Order...</div>
+                </div>
+            </div>
+        </div>
+        <vbox flex="1">
+            <vbox flex="1" anon-id="dataTableContainer">
+                <ui:DataTable anon-id="dataTable" flex="1" />
+            </vbox>
+            <hbox anon-id="contentFooter">
+                <div anon-id="contentDescription" flex="1"></div>
+                <ui:Paginator anon-id="paginator" />
+            </hbox>
+        </vbox>
+        <footer>
+            <div class="FooterWrap">
+                <div class="Reference">
+                    <p>© Copyright 2021 Order Management Powered by Evolus. All rights reserved</p>
+                    <p>Having problems using this website? <a href="#">Get Help.</a></p>
+                </div>
+                <div class="SocialLink">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <i class='bx bxl-facebook-circle'></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <i class='bx bxl-instagram-alt'></i>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <i class='bx bxl-twitter'></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</vbox>

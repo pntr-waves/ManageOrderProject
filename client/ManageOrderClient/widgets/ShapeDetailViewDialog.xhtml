@@ -1,0 +1,60 @@
+<vbox>
+    <style>
+
+        .Input {
+            box-sizing: border-box;
+            outline: none;
+            height: 2.5em;
+            border-radius: unset;
+            border: 1px solid #949494;
+            padding: 0 0.45em;
+        }
+
+        .ShapeProperty {
+            display: flex;
+            align-items: center;
+            margin-top: var(--marginTop);
+            justify-content: space-between;
+        }
+
+        .ShapeProperty .Text {
+            width: var(--itemWidth);
+            text-transform: capitalize;
+        }
+
+        .ShapeProperty .Input {
+           flex: 1;
+        }
+
+        @comboManagerMaterial {
+            background-color: white;
+            text-transform: capitalize;
+        }
+
+        @comboManagerShapeType {
+            background-color: white;
+            text-transform: capitalize;
+        }
+
+        .Popup {
+            box-sizing: border-box;
+        }
+        
+    </style>
+    <div class="Popup">
+        <div class="PopupContent">
+            <div class="ShapeInfo">
+                <div class="ShapeProperty">
+                    <div class="Text">Shape Type:</div>
+                    <ui:ComboManager class="Input" anon-id="comboManagerShapeType" />
+                </div>
+                <div anon-id="listInputProperty">
+                </div>
+                <div class="ShapeProperty">
+                    <div class="Text">Material:</div>
+                    <ui:ComboManager class="Input" anon-id="comboManagerMaterial" />
+                </div>
+            </div>
+        </div>
+    </div>
+</vbox>
