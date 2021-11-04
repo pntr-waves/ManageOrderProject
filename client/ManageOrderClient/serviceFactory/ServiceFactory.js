@@ -1,8 +1,11 @@
 function ServiceFactory() {
 
+    const host = "http://localhost:8080/";
+
     this.post = function (url, params, onCool, onError, data) {
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', url + params, true);
+        let linkUrl = host + url + "?" + params;
+        xhr.open('POST', linkUrl, true);
 
         xhr.onload = function () {
             const data = xhr.responseText;
@@ -16,7 +19,8 @@ function ServiceFactory() {
 
     this.get = function (url, params, onCool, onError) {
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', url + params, true);
+        let linkUrl = host + url + "?" + params;
+        xhr.open('GET', linkUrl, true);
 
         xhr.onload = function () {
             const data = xhr.responseText;

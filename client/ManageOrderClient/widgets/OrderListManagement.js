@@ -23,7 +23,7 @@ function OrderListManagement() {
         term: "",
         paramName: "orderNumber",
         loadPage: function (pageIndex, pageSize, handler, failed) {
-            thiz.serviceFactory.post("http://localhost:8080/", "ManageOrder", function (data) {
+            thiz.serviceFactory.post("ManageOrder", "", function (data) {
                 thiz.totalOrder.innerText = data.length;
                 thiz.totalAmount.innerText = thiz.getTotalAmount(data);
                 handler(data.slice(pageIndex * pageSize, Math.min(data.length, (pageIndex + 1) * pageSize)), data.length);
@@ -77,7 +77,7 @@ OrderListManagement.prototype.onAttached = function () {
 OrderListManagement.prototype.addOrderToTable = function (order) {
     console.log(JSON.stringify(order));
     var thiz = this;
-    this.serviceFactory.post("http://localhost:8080/", "CreateOrder", function (data) {
+    this.serviceFactory.post("CreateOrder", "", function (data) {
         if (data.code == 1) {
             thiz.paginator.refresh();
         } else {
@@ -113,7 +113,7 @@ OrderListManagement.prototype.initializeDataTable = function () {
             return true;
         },
         handler: function (item) {
-            thiz.serviceFactory.get("http://localhost:8080/", "ManageOrder?action=delete&orderId=" + item.id, function (data) {
+            thiz.serviceFactory.get("ManageOrder", "action=delete&orderId=" + item.id, function (data) {
                 if (data.statusCode) {
                     thiz.paginator.refresh();
                 }
@@ -128,7 +128,7 @@ OrderListManagement.prototype.initializeDataTable = function () {
 OrderListManagement.prototype.editOrder = function (item) {
     var orderDetail = new OrderDetailViewDialog();
     orderDetail.callback = this.editOrderToTable.bind(this);
-    this.serviceFactory.get("http://localhost:8080/", "ManageOrder?orderId=" + item.id
+    this.serviceFactory.get("ManageOrder", "orderId=" + item.id
         , function (listShape) {
             orderDetail.open({
                 title: "Edit Order",
@@ -152,7 +152,7 @@ OrderListManagement.prototype.getTotalAmount = function (data) {
 OrderListManagement.prototype.editOrderToTable = function (data) {
     console.log(JSON.stringify(data));
     var thiz = this;
-    this.serviceFactory.post("http://localhost:8080/", "EditOrder", function (response) {
+    this.serviceFactory.post("EditOrder", "", function (response) {
         if (response.code === 0) {
             thiz.paginator.refresh();
         }
